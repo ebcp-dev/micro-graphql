@@ -1,0 +1,30 @@
+{
+  "name": "micro-graphql",
+  "version": "1.0.0",
+  "description": "Central GraphQL API and microservices connected using remote schemas.",
+  "main": "./main-api/server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install-all": "npm --prefix ./main-api i ./main-api && npm --prefix ./service-1 i ./service-1 && npm --prefix ./service-2 i ./service-2",
+    "start-service-1": "cd ./service-1 && npm start",
+    "dev-service-1": "cd ./service-1 && npm run dev",
+    "start-service-2": "cd ./service-2 && npm start",
+    "dev-service-2": "cd ./service-2 && npm run dev",
+    "start-main": "cd ./main-api && npm start",
+    "dev-main": "cd ./main-api && npm run dev"
+  },
+  "keywords": [
+    "GraphQL",
+    "Microservices",
+    "NodeJS",
+    "ExpressJS"
+  ],
+  "author": "Earl Perez",
+  "license": "ISC",
+  "dependencies": {
+    "main-api": "file:main-api",
+    "service-1": "file:service-1",
+    "service-2": "file:service-2"
+  },
+  "devDependencies": {}
+}

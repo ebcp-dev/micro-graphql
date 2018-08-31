@@ -1,0 +1,28 @@
+{
+  "name": "service-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -w src --exec \"babel-node src/server\"",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/server.js"
+  },
+  "author": "Earl Perez",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^1.3.2",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^2.19.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "nodemon": "^1.18.4"
+  }
+}
