@@ -8,13 +8,12 @@ import { getIntrospectSchema } from './introspection';
 
 const app = express();
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT_MAIN || 8081;
+const endpoint_1 = process.env.EP_1 || `http://service-1:8082/graphql`;
+const endpoint_2 = process.env.EP_2 || `http://service-2:8083/graphql`;
 
 //our graphql endpoints
-const endpoints = [
-  'http://localhost:8082/graphql',
-  'http://localhost:8083/graphql'
-];
+const endpoints = [endpoint_1, endpoint_2];
 //async function due to the async nature of grabbing all of our introspect schemas
 (async () => {
   try {
@@ -33,6 +32,6 @@ const endpoints = [
       console.log('Main API GraphQL API listening on port:' + PORT)
     );
   } catch (error) {
-    console.log('ERROR: Failed to grab introspection queries', error);
+    console.log('ERROR: Failed to grab introspection queries.', error);
   }
 })();

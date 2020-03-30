@@ -6,7 +6,11 @@ import schema from './schema';
 
 const app = express();
 
-const PORT = process.env.PORT || 8083;
+const PORT = process.env.PORT2 || 8083;
+
+app.use('/', (req, res) => {
+  res.send(`PORT ${PORT} is listening!`);
+});
 
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
 

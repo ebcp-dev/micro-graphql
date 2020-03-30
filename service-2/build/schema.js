@@ -9,7 +9,7 @@ var _graphqlTools = require('graphql-tools');
 var _data = require('./data');
 
 // SCHEMA DEFINITION
-var typeDefs = '\ntype Query {\n  article\n}\ntype Article {\n  id: ID!\n  title: String\n  url: String\n}';
+var typeDefs = '\ntype Query {\n  article(id: ID!): Article\n}\ntype Article {\n  id: ID!\n  title: String\n  url: String\n}';
 
 // RESOLVERS
 var resolvers = {

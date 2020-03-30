@@ -20,6 +20,10 @@ var app = (0, _express2.default)();
 
 var PORT = process.env.PORT || 8082;
 
+app.use('/', function (req, res) {
+  res.send('PORT ' + PORT + ' is listening!');
+});
+
 app.use('/graphql', _bodyParser2.default.json(), (0, _apolloServerExpress.graphqlExpress)({ schema: _schema2.default }));
 
 app.listen(PORT, function () {

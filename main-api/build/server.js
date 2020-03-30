@@ -23,10 +23,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 
 var app = (0, _express2.default)();
 
-var PORT = process.env.PORT || 8081;
+var PORT = process.env.PORT_MAIN || 8081;
+console.log(process.env.EP_1, process.env.EP_2);
+var endpoint_1 = process.env.EP_1 || 'http://localhost:8082/graphql';
+var endpoint_2 = process.env.EP_2 || 'http://localhost:8083/graphql';
 
 //our graphql endpoints
-var endpoints = ['http://localhost:8082/graphql', 'http://localhost:8083/graphql'];
+var endpoints = [endpoint_1, endpoint_2];
 //async function due to the async nature of grabbing all of our introspect schemas
 _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
   var allSchemas;
@@ -56,7 +59,7 @@ _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
           _context.prev = 8;
           _context.t0 = _context['catch'](0);
 
-          console.log('ERROR: Failed to grab introspection queries', _context.t0);
+          console.log('ERROR: Failed to grab introspection queries.', _context.t0);
 
         case 11:
         case 'end':

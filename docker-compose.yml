@@ -1,0 +1,29 @@
+version: '3'
+services:
+  main-api:
+    image: ebcperez/main-api
+    command: npm start
+    depends_on:
+      - service-1
+      - service-2
+    ports:
+      - 8081:8081
+    environment:
+      - EP_1=http://service-1:8082
+      - EP_2=http://service-2:8083
+    labels:
+      kompose.service.type: LoadBalancer
+  service-1:
+    image: ebcperez/service-1
+    command: npm start
+    ports:
+      - 8082:8082
+    labels:
+      kompose.service.type: LoadBalancer
+  service-2:
+    image: ebcperez/service-2
+    command: npm start
+    ports:
+      - 8083:8083
+    labels:
+      kompose.service.type: LoadBalancer
