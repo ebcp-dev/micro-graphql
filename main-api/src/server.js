@@ -9,8 +9,8 @@ import { getIntrospectSchema } from './introspection';
 const app = express();
 
 const PORT = process.env.PORT_MAIN || 8081;
-const endpoint_1 = process.env.EP_1 || `http://service-1:8082/graphql`;
-const endpoint_2 = process.env.EP_2 || `http://service-2:8083/graphql`;
+const endpoint_1 = process.env.EP_1 || `http://localhost:8082/graphql`;
+const endpoint_2 = process.env.EP_2 || `http://localhost:8083/graphql`;
 
 //our graphql endpoints
 const endpoints = [endpoint_1, endpoint_2];
